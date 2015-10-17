@@ -14,7 +14,7 @@
 <meta property="og:description" content="写在前面的话今天折腾了一个上午，最后还是选定hexo 来最为我自己的blog, 说实在的，我为了能找到一个快捷，便利，设计大方的博客系统伤了好大脑筋，如果按照自己的想法自己写，又觉得自己的前端能力还不到家，达不到我想要的设计，或者说目前真心没有那么多的时间去做这个事，做一个实用设计大方的博客，真不是一件容易的事，网上也有很多博客系统，但是很大一部分是基于PHP, 但是就我个人很不喜欢这个被很多人说">
 <meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151017-1@2x.png">
 <meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151017-2@2x.png">
-<meta property="og:updated_time" content="2015-10-17T15:34:12.000Z">
+<meta property="og:updated_time" content="2015-10-17T15:38:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo加上github自动部署blog">
 <meta name="twitter:description" content="写在前面的话今天折腾了一个上午，最后还是选定hexo 来最为我自己的blog, 说实在的，我为了能找到一个快捷，便利，设计大方的博客系统伤了好大脑筋，如果按照自己的想法自己写，又觉得自己的前端能力还不到家，达不到我想要的设计，或者说目前真心没有那么多的时间去做这个事，做一个实用设计大方的博客，真不是一件容易的事，网上也有很多博客系统，但是很大一部分是基于PHP, 但是就我个人很不喜欢这个被很多人说">
@@ -236,7 +236,8 @@
 <h1 id="自动化部署">自动化部署</h1><h2 id="创建存放自己文章的仓库的webhook">创建存放自己文章的仓库的webhook</h2><p>在你的仓库页面的右边有一个设置的按钮，点击后到此仓库的设置界面。之后点击<code>webHook &amp; services</code></p>
 <p><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151017-1@2x.png" alt="图片1"></p>
 <p>之后在<code>payload url</code>中填写你服务器给出的<code>URL</code>, <code>Content-type</code>选择不是<code>json</code>的那一个. 并且记住一定要写<code>secure</code>，保证安全的请求<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151017-2@2x.png" alt="图片2"></p>
-<h2 id="服务器自动化部署代码">服务器自动化部署代码</h2><p>在nginx上配置好自己的反向代理, 给大家一个我写的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">80</span>;</span><br><span class="line">  server_name     *.youdomain.com;</span><br><span class="line">  location / &#123;</span><br><span class="line">    proxy_http_version      <span class="number">1.1</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        X-Real-IP       <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        X-Forwarded_For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        Host    <span class="variable">$http_host</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        X-Nginx-Proxy   <span class="literal">true</span>;</span><br><span class="line">    proxy_<span class="built_in">read</span>_timeout      <span class="number">300</span>s;</span><br><span class="line">    proxy_pass      http://<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">9002</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="服务器自动化部署代码">服务器自动化部署代码</h2><p>在nginx上配置好自己的反向代理, 给大家一个我写的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">80</span>;</span><br><span class="line">  server_name     *.youdomain.com;</span><br><span class="line">  location / &#123;</span><br><span class="line">    proxy_http_version      <span class="number">1.1</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        X-Real-IP       <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        X-Forwarded_For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        Host    <span class="variable">$http_host</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header        X-Nginx-Proxy   <span class="literal">true</span>;</span><br><span class="line">    proxy_<span class="built_in">read</span>_timeout      <span class="number">300</span>s;</span><br><span class="line">    proxy_pass      http://<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">9002</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个我已经帮你写好了，见<a href="https://github.com/struCoder/blog-articles-server" target="_blank" rel="external">点击我</a>, 将这个代码部署到你的服务器，在运行前记得<code>cp config.example.js config.js</code>, 并且，将之前你在添加webhook时的密钥贴在这</p>
 <p>在这个代码的跟目录运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:yourname/your-git-name.git public/articles</span><br></pre></td></tr></table></figure>
@@ -312,12 +313,10 @@
     	<div class="footer-left">
     		&copy; 2015 David Zhang
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
     </div>
   </div>
 </footer>
+
     </div>
     
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
