@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>通过声音破解案按键数字 | 张大伟的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/0/w/60">
+  <meta name="description" content="关于手机(电话)拨号按键声音破解
+做这件事的原因今天不知道什么时候的突发奇想，居然想到了以前听别人说，可以通过按键声音的不同从而可以在只听别人拨号时发出的声音而知道，这个人按了那些键，这个咋一听感觉非常奇妙，但是像我们这些，对声音不怎么敏感的码农又如何做到可以听声晓键的至高境界呢。当然通过软件以及相关知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过声音破解案按键数字">
+<meta property="og:url" content="http://strucoder.com/2015/05/18/通过声音破解案按键数字/index.html">
+<meta property="og:site_name" content="张大伟的个人博客">
+<meta property="og:description" content="关于手机(电话)拨号按键声音破解
+做这件事的原因今天不知道什么时候的突发奇想，居然想到了以前听别人说，可以通过按键声音的不同从而可以在只听别人拨号时发出的声音而知道，这个人按了那些键，这个咋一听感觉非常奇妙，但是像我们这些，对声音不怎么敏感的码农又如何做到可以听声晓键的至高境界呢。当然通过软件以及相关知识。">
+<meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/GTey2G4tmXtdgAdy7.png">
+<meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/GTey2G4tmXtdgAdy7.png">
+<meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/3gPgbJ5L77wLQpgEK.png">
+<meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QxfNnbx3k68a4isNQ.png">
+<meta property="og:updated_time" content="2015-10-18T03:36:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过声音破解案按键数字">
+<meta name="twitter:description" content="关于手机(电话)拨号按键声音破解
+做这件事的原因今天不知道什么时候的突发奇想，居然想到了以前听别人说，可以通过按键声音的不同从而可以在只听别人拨号时发出的声音而知道，这个人按了那些键，这个咋一听感觉非常奇妙，但是像我们这些，对声音不怎么敏感的码农又如何做到可以听声晓键的至高境界呢。当然通过软件以及相关知识。">
+  
+    <link rel="alternative" href="/atom.xml" title="张大伟的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/1/w/460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">David Zhang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">strucoder&#39;s blog</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/struCoder" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/3560727401/profile" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/strucoder" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/zdwloveschina@gmail.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/strucoder" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Adobe/" style="font-size: 10px;">Adobe</a> <a href="/tags/Meteor-js/" style="font-size: 10px;">Meteor.js</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/历史/" style="font-size: 20px;">历史</a> <a href="/tags/战争/" style="font-size: 20px;">战争</a> <a href="/tags/折腾/" style="font-size: 10px;">折腾</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">两.个.轮.子.上.写.代.码</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">David Zhang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/1/w/460" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">David Zhang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">strucoder&#39;s blog</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/struCoder" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/3560727401/profile" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/strucoder" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/zdwloveschina@gmail.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/strucoder" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-通过声音破解案按键数字" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/18/通过声音破解案按键数字/" class="article-date">
+  	<time datetime="2015-05-18T03:32:23.000Z" itemprop="datePublished">2015-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      通过声音破解案按键数字
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/折腾/">折腾</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于手机(电话)拨号按键声音破解</p>
+<h2 id="做这件事的原因">做这件事的原因</h2><p>今天不知道什么时候的突发奇想，居然想到了以前听别人说，可以通过按键声音的不同从而可以在只听别人拨号时发出的声音而知道，这个人按了那些<br>键，这个咋一听感觉非常奇妙，但是像我们这些，对声音不怎么敏感的码农又如何做到可以听声晓键的至高境界呢。当然通过软件以及相关知识。<br><a id="more"></a></p>
+<h2 id="准备工作">准备工作</h2><ol>
+<li>了解多音双频的概念(大致了解一下就好)</li>
+<li>下载Adobe公司的<strong>Adobe Audition</strong>(网上有绿色版)</li>
+<li>对照电话按键的频谱表(后面我会给大家)</li>
+<li>自己手机录一段声音(我这里给大家提前录好了，我是用iphone录的魅族3的拨号音.可以下载)</li>
+</ol>
+<h2 id="开始破解">开始破解</h2><p>首先打开Adobe Audition并且将<a href="http://pan.baidu.com/s/1mgvglnE" target="_blank" rel="external">这个文件</a>打开, 之后你会看到类似于这样的频谱图<br> <img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/GTey2G4tmXtdgAdy7.png" alt="1.png"></p>
+<p>看到这样的东西一定觉得特别炫，我今天因为首次搞这个也是第一次见到，直接炫呆了。之后，我们将窗口中下方的<code>频谱</code>区域调大一些，就是拖拽<br>频谱图与波形图之间的分隔栏。<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/GTey2G4tmXtdgAdy7.png" alt="2.png"><br>紧接着我们稍微将鼠标移动到<code>频谱图</code>中滚动滑轮进行放大以及，将鼠标移动到右侧中的<code>频率</code>上滚动滑轮，此时我们就可以看到如下的效果了<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/3gPgbJ5L77wLQpgEK.png" alt="放大后"></p>
+<p>之后通过对照电话按键的<code>频率表</code></p>
+<p><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QxfNnbx3k68a4isNQ.png" alt="多音双频.png"></p>
+<p>相信你一定得到开始我们录音时的电话按键了，我的是<code>85698</code></p>
+<h2 id="最后">最后</h2><p>本次突发奇想的去做这个事尽是而然性，大家也可以通过这个去算出，那些电视节目里拨打号码的场景，可以算出，那些人究竟拨打了那些数字<br>或者说是不是真正的拨打了有效的电话。哈哈</p>
+<p>完.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/18/javascript实现编辑距离/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          javascript实现编辑距离
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/18/meteor-SEO经验-分享/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">meteor-SEO经验-分享</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="通过声音破解案按键数字" data-title="通过声音破解案按键数字" data-url="http://strucoder.com/2015/05/18/通过声音破解案按键数字/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"strucoder"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 David Zhang
+    	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

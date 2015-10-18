@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript实现编辑距离 | 张大伟的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/0/w/60">
+  <meta name="description" content="我还在学校的时候写过这一篇文章, 在这篇文章里就初步的利用别人写好的算法(编辑距离)来实现当初自己想做的东西，目前因为自己很多时间在用javascript, 所以在这篇文章里用js来实现一个编辑距离.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript实现编辑距离">
+<meta property="og:url" content="http://strucoder.com/2015/07/18/javascript实现编辑距离/index.html">
+<meta property="og:site_name" content="张大伟的个人博客">
+<meta property="og:description" content="我还在学校的时候写过这一篇文章, 在这篇文章里就初步的利用别人写好的算法(编辑距离)来实现当初自己想做的东西，目前因为自己很多时间在用javascript, 所以在这篇文章里用js来实现一个编辑距离.">
+<meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/xaL6fMpsmiHG8LQmX.png">
+<meta property="og:updated_time" content="2015-10-18T03:19:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript实现编辑距离">
+<meta name="twitter:description" content="我还在学校的时候写过这一篇文章, 在这篇文章里就初步的利用别人写好的算法(编辑距离)来实现当初自己想做的东西，目前因为自己很多时间在用javascript, 所以在这篇文章里用js来实现一个编辑距离.">
+  
+    <link rel="alternative" href="/atom.xml" title="张大伟的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/1/w/460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">David Zhang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">strucoder&#39;s blog</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/struCoder" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/3560727401/profile" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/strucoder" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/zdwloveschina@gmail.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/strucoder" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Adobe/" style="font-size: 10px;">Adobe</a> <a href="/tags/Meteor-js/" style="font-size: 10px;">Meteor.js</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/历史/" style="font-size: 20px;">历史</a> <a href="/tags/战争/" style="font-size: 20px;">战争</a> <a href="/tags/折腾/" style="font-size: 10px;">折腾</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">两.个.轮.子.上.写.代.码</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">David Zhang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/1/w/460" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">David Zhang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">strucoder&#39;s blog</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/struCoder" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/3560727401/profile" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/strucoder" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/zdwloveschina@gmail.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/strucoder" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-javascript实现编辑距离" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/18/javascript实现编辑距离/" class="article-date">
+  	<time datetime="2015-07-18T03:09:00.000Z" itemprop="datePublished">2015-07-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript实现编辑距离
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我还在学校的时候写过这<a href="http://www.cnblogs.com/struCoder/p/3462357.html" target="_blank" rel="external">一篇文章</a>, 在这篇文章里就初步的<br>利用别人写好的算法(编辑距离)来实现当初自己想做的东西，目前因为自己很多时间在用javascript, 所以在这篇文章里用js来实现一个<strong>编辑距离</strong>.</p>
+<a id="more"></a>
+<h2 id="什么是编辑距离">什么是编辑距离</h2><p>编辑距离:  又称Levenshtein距离(也叫做Edit Distance)，是指两个字串之间，由一个转成另一个所需的最少编辑操作次数，如果它们的距离越大，说明它们越是不同。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。</p>
+<h2 id="编辑距离的作用">编辑距离的作用</h2><ul>
+<li>验证码识别</li>
+<li>检测文章的相似度</li>
+<li>文档的重写度</li>
+<li>…</li>
+</ul>
+<h2 id="算法的实现步骤">算法的实现步骤</h2><ol>
+<li>两个字符串中如果有一个字符串的长度为0则返回另一个字符串的长度</li>
+<li>初始化一个(lenStr1 + 1) * (lenStr2 + 1)二维数组, x轴与y轴以0开始到lenStr(1|2)</li>
+<li>取dArr[i][j-1],  dArr[i - 1][j] 和dArr[i - 1][j - 1] + str1[i - 1] === str2 [j - 1] ? 0 : 1 中的最小数作为dArr[i][j]</li>
+</ol>
+<h2 id="代码实现">代码实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getStrDistance = <span class="function"><span class="keyword">function</span>(<span class="params">str1, str2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> lenStr1 = str1.length;</span><br><span class="line">  <span class="keyword">var</span> lenStr2 = str2.length;</span><br><span class="line">  <span class="keyword">if</span> (lenStr1 === <span class="number">0</span> || lenStr2 === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> lenStr1 === <span class="number">0</span> ? lenStr2 : lenStr1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> dArr = <span class="keyword">new</span> <span class="built_in">Array</span>(lenStr1 + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= lenStr1; i++) &#123;</span><br><span class="line">    dArr[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(lenStr2 + <span class="number">1</span>);</span><br><span class="line">    dArr[i][<span class="number">0</span>] = i;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt;= lenStr2; j++) &#123;</span><br><span class="line">    dArr[<span class="number">0</span>][j] = j;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">1</span>; k &lt;= lenStr1; k++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> l = <span class="number">1</span>; l &lt;= lenStr2; l++) &#123;</span><br><span class="line">      dArr[k][l] = <span class="built_in">Math</span>.min(</span><br><span class="line">        dArr[k - <span class="number">1</span>][l - <span class="number">1</span>] + (str1[k - <span class="number">1</span>] === str2[l - <span class="number">1</span>] ? <span class="number">0</span> : <span class="number">1</span>),</span><br><span class="line">        dArr[k - <span class="number">1</span>][l] + <span class="number">1</span>,</span><br><span class="line">        dArr[k][l - <span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dArr[lenStr1][lenStr2];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/xaL6fMpsmiHG8LQmX.png" alt="运行结果"></p>
+<p>完.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/17/中国是不是二战的主战场-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          中国是不是二战的主战场-1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/18/通过声音破解案按键数字/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">通过声音破解案按键数字</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript实现编辑距离" data-title="javascript实现编辑距离" data-url="http://strucoder.com/2015/07/18/javascript实现编辑距离/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"strucoder"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 David Zhang
+    	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

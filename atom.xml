@@ -124,4 +124,100 @@
     
   </entry>
   
+  <entry>
+    <title><![CDATA[javascript实现编辑距离]]></title>
+    <link href="http://strucoder.com/2015/07/18/javascript%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/"/>
+    <id>http://strucoder.com/2015/07/18/javascript实现编辑距离/</id>
+    <published>2015-07-18T03:09:00.000Z</published>
+    <updated>2015-10-18T03:19:05.000Z</updated>
+    <content type="html"><![CDATA[<p>我还在学校的时候写过这<a href="http://www.cnblogs.com/struCoder/p/3462357.html" target="_blank" rel="external">一篇文章</a>, 在这篇文章里就初步的<br>利用别人写好的算法(编辑距离)来实现当初自己想做的东西，目前因为自己很多时间在用javascript, 所以在这篇文章里用js来实现一个<strong>编辑距离</strong>.</p>
+<a id="more"></a>
+<h2 id="什么是编辑距离">什么是编辑距离</h2><p>编辑距离:  又称Levenshtein距离(也叫做Edit Distance)，是指两个字串之间，由一个转成另一个所需的最少编辑操作次数，如果它们的距离越大，说明它们越是不同。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。</p>
+<h2 id="编辑距离的作用">编辑距离的作用</h2><ul>
+<li>验证码识别</li>
+<li>检测文章的相似度</li>
+<li>文档的重写度</li>
+<li>…</li>
+</ul>
+<h2 id="算法的实现步骤">算法的实现步骤</h2><ol>
+<li>两个字符串中如果有一个字符串的长度为0则返回另一个字符串的长度</li>
+<li>初始化一个(lenStr1 + 1) * (lenStr2 + 1)二维数组, x轴与y轴以0开始到lenStr(1|2)</li>
+<li>取dArr[i][j-1],  dArr[i - 1][j] 和dArr[i - 1][j - 1] + str1[i - 1] === str2 [j - 1] ? 0 : 1 中的最小数作为dArr[i][j]</li>
+</ol>
+<h2 id="代码实现">代码实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getStrDistance = <span class="function"><span class="keyword">function</span>(<span class="params">str1, str2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> lenStr1 = str1.length;</span><br><span class="line">  <span class="keyword">var</span> lenStr2 = str2.length;</span><br><span class="line">  <span class="keyword">if</span> (lenStr1 === <span class="number">0</span> || lenStr2 === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> lenStr1 === <span class="number">0</span> ? lenStr2 : lenStr1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> dArr = <span class="keyword">new</span> <span class="built_in">Array</span>(lenStr1 + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= lenStr1; i++) &#123;</span><br><span class="line">    dArr[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(lenStr2 + <span class="number">1</span>);</span><br><span class="line">    dArr[i][<span class="number">0</span>] = i;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt;= lenStr2; j++) &#123;</span><br><span class="line">    dArr[<span class="number">0</span>][j] = j;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">1</span>; k &lt;= lenStr1; k++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> l = <span class="number">1</span>; l &lt;= lenStr2; l++) &#123;</span><br><span class="line">      dArr[k][l] = <span class="built_in">Math</span>.min(</span><br><span class="line">        dArr[k - <span class="number">1</span>][l - <span class="number">1</span>] + (str1[k - <span class="number">1</span>] === str2[l - <span class="number">1</span>] ? <span class="number">0</span> : <span class="number">1</span>),</span><br><span class="line">        dArr[k - <span class="number">1</span>][l] + <span class="number">1</span>,</span><br><span class="line">        dArr[k][l - <span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dArr[lenStr1][lenStr2];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/xaL6fMpsmiHG8LQmX.png" alt="运行结果"></p>
+<p>完.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我还在学校的时候写过这<a href="http://www.cnblogs.com/struCoder/p/3462357.html">一篇文章</a>, 在这篇文章里就初步的<br>利用别人写好的算法(编辑距离)来实现当初自己想做的东西，目前因为自己很多时间在用javascript, 所以在这篇文章里用js来实现一个<strong>编辑距离</strong>.</p>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://strucoder.com/tags/javascript/"/>
+    
+      <category term="算法" scheme="http://strucoder.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[通过声音破解案按键数字]]></title>
+    <link href="http://strucoder.com/2015/05/18/%E9%80%9A%E8%BF%87%E5%A3%B0%E9%9F%B3%E7%A0%B4%E8%A7%A3%E6%A1%88%E6%8C%89%E9%94%AE%E6%95%B0%E5%AD%97/"/>
+    <id>http://strucoder.com/2015/05/18/通过声音破解案按键数字/</id>
+    <published>2015-05-18T03:32:23.000Z</published>
+    <updated>2015-10-18T03:36:16.000Z</updated>
+    <content type="html"><![CDATA[<p>关于手机(电话)拨号按键声音破解</p>
+<h2 id="做这件事的原因">做这件事的原因</h2><p>今天不知道什么时候的突发奇想，居然想到了以前听别人说，可以通过按键声音的不同从而可以在只听别人拨号时发出的声音而知道，这个人按了那些<br>键，这个咋一听感觉非常奇妙，但是像我们这些，对声音不怎么敏感的码农又如何做到可以听声晓键的至高境界呢。当然通过软件以及相关知识。<br><a id="more"></a></p>
+<h2 id="准备工作">准备工作</h2><ol>
+<li>了解多音双频的概念(大致了解一下就好)</li>
+<li>下载Adobe公司的<strong>Adobe Audition</strong>(网上有绿色版)</li>
+<li>对照电话按键的频谱表(后面我会给大家)</li>
+<li>自己手机录一段声音(我这里给大家提前录好了，我是用iphone录的魅族3的拨号音.可以下载)</li>
+</ol>
+<h2 id="开始破解">开始破解</h2><p>首先打开Adobe Audition并且将<a href="http://pan.baidu.com/s/1mgvglnE" target="_blank" rel="external">这个文件</a>打开, 之后你会看到类似于这样的频谱图<br> <img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/GTey2G4tmXtdgAdy7.png" alt="1.png"></p>
+<p>看到这样的东西一定觉得特别炫，我今天因为首次搞这个也是第一次见到，直接炫呆了。之后，我们将窗口中下方的<code>频谱</code>区域调大一些，就是拖拽<br>频谱图与波形图之间的分隔栏。<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/GTey2G4tmXtdgAdy7.png" alt="2.png"><br>紧接着我们稍微将鼠标移动到<code>频谱图</code>中滚动滑轮进行放大以及，将鼠标移动到右侧中的<code>频率</code>上滚动滑轮，此时我们就可以看到如下的效果了<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/3gPgbJ5L77wLQpgEK.png" alt="放大后"></p>
+<p>之后通过对照电话按键的<code>频率表</code></p>
+<p><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QxfNnbx3k68a4isNQ.png" alt="多音双频.png"></p>
+<p>相信你一定得到开始我们录音时的电话按键了，我的是<code>85698</code></p>
+<h2 id="最后">最后</h2><p>本次突发奇想的去做这个事尽是而然性，大家也可以通过这个去算出，那些电视节目里拨打号码的场景，可以算出，那些人究竟拨打了那些数字<br>或者说是不是真正的拨打了有效的电话。哈哈</p>
+<p>完.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>关于手机(电话)拨号按键声音破解</p>
+<h2 id="做这件事的原因">做这件事的原因</h2><p>今天不知道什么时候的突发奇想，居然想到了以前听别人说，可以通过按键声音的不同从而可以在只听别人拨号时发出的声音而知道，这个人按了那些<br>键，这个咋一听感觉非常奇妙，但是像我们这些，对声音不怎么敏感的码农又如何做到可以听声晓键的至高境界呢。当然通过软件以及相关知识。<br>]]>
+    
+    </summary>
+    
+      <category term="Adobe" scheme="http://strucoder.com/tags/Adobe/"/>
+    
+      <category term="折腾" scheme="http://strucoder.com/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[meteor-SEO经验-分享]]></title>
+    <link href="http://strucoder.com/2015/05/18/meteor-SEO%E7%BB%8F%E9%AA%8C-%E5%88%86%E4%BA%AB/"/>
+    <id>http://strucoder.com/2015/05/18/meteor-SEO经验-分享/</id>
+    <published>2015-05-17T19:21:37.000Z</published>
+    <updated>2015-10-18T03:32:47.000Z</updated>
+    <content type="html"><![CDATA[<p>Meteor的SEO经验分享</p>
+<h2 id="对Meteor_SEO的探索:">对Meteor SEO的探索:</h2><p>在<a href="http://www.itodo.me/u/p/detail/cTqYKYJbfLPs3kR6Y" target="_blank" rel="external">这篇文章</a>里我就已经对Meteor的SEO做了一次<br>探索性的总结，因为目前很多老外或者官网都推荐<a href="https://atmospherejs.com/meteor/spiderable" target="_blank" rel="external">这个spideable</a>包，我刚开始也跟着 官网的推荐尝试了一下，各种坑啊，那个<code>phantomjs</code>在这里做为后端编译然后<br>返回<code>html</code>给爬虫，简直是大材小用，更为主要的是，这个<code>phantomjs</code>太大了，而且我没有编译成功，这也是导致我放弃的原因，因为我们要解决meteor 的seo的根本思想就是，后端将渲染好的页面返回给爬虫。本着这个思想，我在<a href="https://atmospherejs.com" target="_blank" rel="external">package官网</a>也找了一下，最终找到了我想要的包也就是<a href="https://atmospherejs.com/meteorhacks/ssr" target="_blank" rel="external">srr</a>. 这哥们的源码我也看了，几乎是基于<code>Meteor</code>内在的代码，对其它代码的依赖很小，这才是我想要的。</p>
+<a id="more"></a>
+<h2 id="关于Meta">关于Meta</h2><p>一般情况下，爬虫爬你的网站，对于Meta的认识还是非常重要的，如果你在你单页web应用的头部表明：<br><code>&lt;meta name=&quot;fragment&quot; content=&quot;!&quot;&gt;</code>这样爬虫就知道你的网站是单页应用，他就会重新以新的方式再次请求你的网站, 比如开始请求你的网站:www.itodo.me. 当看到刚刚写的那个meta时，其从新以<br><code>www.itodo.me/?_escaped_fragment_=</code>的形式请求的你网站，如果我们知道爬虫这样的行为，接下来的事就好办了我们可以在<code>sever</code>代码里判断其query，针对<code>Meteor</code>我们可以用<code>webapp</code>或者<code>iron:router</code>进行<code>query</code>判断.在这里我就以<code>iron:router</code>来表述我的SEO做法.</p>
+<h2 id="我的Meteor_SEO">我的Meteor SEO</h2><p>按照<code>meteorhacks:ssr</code>的文档，我在根目录新建一个<code>srr</code>文件夹具体的目录结构为:<br>&gt;<br>  |–srr<br>    |–server<br>      |–compile.js<br>      |–serverrRouter.js</p>
+<p>在我的<code>private</code>目录下就是我们想给爬虫的那些页面了。动态渲染的有<code>\{\{title\}\}</code>, <code>\{\{description\}\}</code>和<br><code>\{\{content\}\}</code>这三个我想是必须的而且对于爬虫来说，更是尤其重要的内容.<br>这是我在<code>serverRouter.js</code>中的部分代码，不过很典型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Router.route(<span class="string">'/u/p/detail/:id'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/_escaped_fragment_/</span>.test(req.url)) &#123;</span><br><span class="line">    <span class="keyword">var</span> noteId = <span class="keyword">this</span>.params.id;</span><br><span class="line">    <span class="keyword">var</span> oneNote = Notes.findOne(xxx)</span><br><span class="line">    <span class="keyword">if</span> (!oneNote) &#123;</span><br><span class="line">      <span class="keyword">return</span> res.status(<span class="number">404</span>).end();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> oneNoteHtml = SSR.render(<span class="string">'detail'</span>, &#123;</span><br><span class="line">      css: css,</span><br><span class="line">      title: oneNote.title,</span><br><span class="line">      description: oneNote.note.substring(<span class="number">0</span>, <span class="number">300</span>),</span><br><span class="line">      oneNote: oneNote</span><br><span class="line">    &#125;);</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'text/html'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(oneNoteHtml);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, &#123;where: <span class="string">'server'</span>&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>到了这里简单的SEO就算是基本完成了。不过目前我的网站权重不是很大，Google的爬取得频率不是很高，baidu基本废了，bing也是。这个就不多说了，我也不在乎。</p>
+<h2 id="总结">总结</h2><p>对于单页应用的SEO，做起来还是有些复杂，做更好的SEO那就需要经验了，我这里只是抛砖引玉。<br>本文可以转载，但请保留原始链接.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Meteor的SEO经验分享</p>
+<h2 id="对Meteor_SEO的探索:">对Meteor SEO的探索:</h2><p>在<a href="http://www.itodo.me/u/p/detail/cTqYKYJbfLPs3kR6Y">这篇文章</a>里我就已经对Meteor的SEO做了一次<br>探索性的总结，因为目前很多老外或者官网都推荐<a href="https://atmospherejs.com/meteor/spiderable">这个spideable</a>包，我刚开始也跟着 官网的推荐尝试了一下，各种坑啊，那个<code>phantomjs</code>在这里做为后端编译然后<br>返回<code>html</code>给爬虫，简直是大材小用，更为主要的是，这个<code>phantomjs</code>太大了，而且我没有编译成功，这也是导致我放弃的原因，因为我们要解决meteor 的seo的根本思想就是，后端将渲染好的页面返回给爬虫。本着这个思想，我在<a href="https://atmospherejs.com">package官网</a>也找了一下，最终找到了我想要的包也就是<a href="https://atmospherejs.com/meteorhacks/ssr">srr</a>. 这哥们的源码我也看了，几乎是基于<code>Meteor</code>内在的代码，对其它代码的依赖很小，这才是我想要的。</p>]]>
+    
+    </summary>
+    
+      <category term="Meteor.js" scheme="http://strucoder.com/tags/Meteor-js/"/>
+    
+      <category term="SEO" scheme="http://strucoder.com/tags/SEO/"/>
+    
+  </entry>
+  
 </feed>
