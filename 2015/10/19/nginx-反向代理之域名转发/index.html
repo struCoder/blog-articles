@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/10 | 张大伟的个人博客</title>
+  <title>nginx-反向代理之域名转发 | 张大伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/0/w/60">
-  <meta name="description" content="personal blog strucoder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张大伟的个人博客">
-<meta property="og:url" content="http://strucoder.com/archives/2015/10/index.html">
+  <meta name="description" content="前几天在我的个人托管在新加坡的VPS主机上上线了我的个人博客，因为我之前在这个VPS上上线过我之前的一个项目, 也是通过nginx进行转发的。而现在又要同样在80转发到我程序运行的端口，所以就要通过nginx配置文件中的server_name进行相应的转发，但是我在这里翻了一个错误，如果我自己不犯这个小错误我就不会来写这篇小文章了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx-反向代理之域名转发">
+<meta property="og:url" content="http://strucoder.com/2015/10/19/nginx-反向代理之域名转发/index.html">
 <meta property="og:site_name" content="张大伟的个人博客">
-<meta property="og:description" content="personal blog strucoder">
+<meta property="og:description" content="前几天在我的个人托管在新加坡的VPS主机上上线了我的个人博客，因为我之前在这个VPS上上线过我之前的一个项目, 也是通过nginx进行转发的。而现在又要同样在80转发到我程序运行的端口，所以就要通过nginx配置文件中的server_name进行相应的转发，但是我在这里翻了一个错误，如果我自己不犯这个小错误我就不会来写这篇小文章了。">
+<meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151019-0@2x.png">
+<meta property="og:updated_time" content="2015-10-19T06:15:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张大伟的个人博客">
-<meta name="twitter:description" content="personal blog strucoder">
+<meta name="twitter:title" content="nginx-反向代理之域名转发">
+<meta name="twitter:description" content="前几天在我的个人托管在新加坡的VPS主机上上线了我的个人博客，因为我之前在这个VPS上上线过我之前的一个项目, 也是通过nginx进行转发的。而现在又要同样在80转发到我程序运行的端口，所以就要通过nginx配置文件中的server_name进行相应的转发，但是我在这里翻了一个错误，如果我自己不犯这个小错误我就不会来写这篇小文章了。">
   
     <link rel="alternative" href="/atom.xml" title="张大伟的个人博客" type="application/atom+xml">
   
@@ -179,146 +181,108 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-nginx-反向代理之域名转发" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/19/nginx-反向代理之域名转发/" class="archive-article-date">
-  	<time datetime="2015-10-19T05:01:45.000Z" itemprop="datePublished">Oct 19</time>
+    <div class="article-meta">
+      <a href="/2015/10/19/nginx-反向代理之域名转发/" class="article-date">
+  	<time datetime="2015-10-19T05:01:45.000Z" itemprop="datePublished">2015-10-19</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/19/nginx-反向代理之域名转发/">nginx-反向代理之域名转发</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nginx-反向代理之域名转发
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/17/hexo加上github自动部署blog/" class="archive-article-date">
-  	<time datetime="2015-10-17T14:41:54.000Z" itemprop="datePublished">Oct 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/17/hexo加上github自动部署blog/">hexo加上github自动部署blog</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天在我的个人托管在新加坡的VPS主机上上线了我的个人博客，因为我之前在这个VPS上上线过我之前的一个<a href="http://itodo.me" target="_blank" rel="external">项目</a>, 也是通过nginx进行转发的。<br>而现在又要同样在<code>80</code>转发到我程序运行的端口，所以就要通过nginx配置文件中的<code>server_name</code>进行相应的转发，但是我在这里翻了一个错误，如果我自己不犯这个小错误<br>我就不会来写这篇小文章了。</p>
+<a id="more"></a>
+<p>我的<code>itodo.me</code>的<code>nginx</code>配置文件一开始是这样的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  server_name: *.itodo.me;</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为只是一个转发的过程，所以我在配置我的个人博客的时候，我就拷贝了一份<code>itodo</code>的nginx配置文件，并且改一下<code>server_name</code>为<code>*.strucoder.com</code><br>同时呢，在<code>cloudFare</code>的域名解析中将<code>strucoder.com</code>的A记录指向我的VPS服务器的地址。而这一步的操作也开始和我的<code>itodo</code>是一样的。所以，今天我访问<br><code>http://itodo.me</code>的时候，居然直接解析到我的个人博客网站的程序里的，也就是出来的页面是我的个人博客的页面，我就知道问题出在<code>nginx</code>转发的时候。原因<br>很简单，因为，一开始我在配置<code>server_name</code>的时候，其配置为<code>*.domain.com</code>; 这样的只对二级域名有用, 所以我在访问这两个域名的二级域名的时候没有出问题的<br>原因。所以到这，知道了原因，那么解决办法就出来了，就是分开写。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server_name: itodo.me www.itodo.me;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151019-0@2x.png" alt="正确配置"></p>
+<p>完.</p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/17/hexo加上github自动部署blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo加上github自动部署blog</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/17/中国是不是二战的主战场-2/" class="archive-article-date">
-  	<time datetime="2015-10-17T05:27:34.000Z" itemprop="datePublished">Oct 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/17/中国是不是二战的主战场-2/">中国是不是二战的主战场-2</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/历史/">历史</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/战争/">战争</a></li></ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="nginx-反向代理之域名转发" data-title="nginx-反向代理之域名转发" data-url="http://strucoder.com/2015/10/19/nginx-反向代理之域名转发/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"strucoder"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/17/中国是不是二战的主战场-1/" class="archive-article-date">
-  	<time datetime="2015-10-17T05:18:19.000Z" itemprop="datePublished">Oct 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/17/中国是不是二战的主战场-1/">中国是不是二战的主战场-1</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/历史/">历史</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/战争/">战争</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -345,8 +309,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true
