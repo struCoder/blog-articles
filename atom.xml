@@ -4,7 +4,7 @@
   <subtitle><![CDATA[strucoder's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://strucoder.com/"/>
-  <updated>2015-10-19T06:15:46.000Z</updated>
+  <updated>2015-10-21T05:27:03.000Z</updated>
   <id>http://strucoder.com/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[阶段性生活感触]]></title>
+    <link href="http://strucoder.com/2015/10/21/%E9%98%B6%E6%AE%B5%E6%80%A7%E7%94%9F%E6%B4%BB%E6%84%9F%E8%A7%A6/"/>
+    <id>http://strucoder.com/2015/10/21/阶段性生活感触/</id>
+    <published>2015-10-21T04:19:11.000Z</published>
+    <updated>2015-10-21T05:27:03.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="生活" scheme="http://strucoder.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[nginx-反向代理之域名转发]]></title>
@@ -220,7 +235,7 @@
     <link href="http://strucoder.com/2015/05/18/meteor-SEO%E7%BB%8F%E9%AA%8C-%E5%88%86%E4%BA%AB/"/>
     <id>http://strucoder.com/2015/05/18/meteor-SEO经验-分享/</id>
     <published>2015-05-17T19:21:37.000Z</published>
-    <updated>2015-10-18T03:32:47.000Z</updated>
+    <updated>2015-10-21T08:24:39.000Z</updated>
     <content type="html"><![CDATA[<p>Meteor的SEO经验分享</p>
 <h2 id="对Meteor_SEO的探索:">对Meteor SEO的探索:</h2><p>在<a href="http://www.itodo.me/u/p/detail/cTqYKYJbfLPs3kR6Y" target="_blank" rel="external">这篇文章</a>里我就已经对Meteor的SEO做了一次<br>探索性的总结，因为目前很多老外或者官网都推荐<a href="https://atmospherejs.com/meteor/spiderable" target="_blank" rel="external">这个spideable</a>包，我刚开始也跟着 官网的推荐尝试了一下，各种坑啊，那个<code>phantomjs</code>在这里做为后端编译然后<br>返回<code>html</code>给爬虫，简直是大材小用，更为主要的是，这个<code>phantomjs</code>太大了，而且我没有编译成功，这也是导致我放弃的原因，因为我们要解决meteor 的seo的根本思想就是，后端将渲染好的页面返回给爬虫。本着这个思想，我在<a href="https://atmospherejs.com" target="_blank" rel="external">package官网</a>也找了一下，最终找到了我想要的包也就是<a href="https://atmospherejs.com/meteorhacks/ssr" target="_blank" rel="external">srr</a>. 这哥们的源码我也看了，几乎是基于<code>Meteor</code>内在的代码，对其它代码的依赖很小，这才是我想要的。</p>
 <a id="more"></a>
