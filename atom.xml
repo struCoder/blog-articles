@@ -4,7 +4,7 @@
   <subtitle><![CDATA[strucoder's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://strucoder.com/"/>
-  <updated>2015-10-29T10:33:09.000Z</updated>
+  <updated>2015-10-29T10:34:04.000Z</updated>
   <id>http://strucoder.com/</id>
   
   <author>
@@ -19,9 +19,9 @@
     <link href="http://strucoder.com/2015/10/29/js%E7%BB%8F%E5%85%B8%E9%A2%98%E7%9B%AE%E7%9A%84%E8%80%83%E8%AF%95/"/>
     <id>http://strucoder.com/2015/10/29/js经典题目的考试/</id>
     <published>2015-10-29T10:28:37.000Z</published>
-    <updated>2015-10-29T10:33:09.000Z</updated>
+    <updated>2015-10-29T10:34:04.000Z</updated>
     <content type="html"><![CDATA[<p>一个朋友在群里发了一条javascript测试链接。<a href="http://javascript-puzzlers.herokuapp.com" target="_blank" rel="external">点击</a></p>
-<p>我去做了之后连一半的分都没有拿到。。。我已经哭晕在厕所。。。<br><a href="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151029-7.png" target="_blank" rel="external">测试结果</a></p>
+<p>我去做了之后连一半的分都没有拿到。。。我已经哭晕在厕所。。。<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/QQ20151029-7.png" alt="测试结果"></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>一个朋友在群里发了一条javascript测试链接。<a href="http://javascript-puzzlers.herokuapp.com" target="_blank" rel="external">点击</a></p>
