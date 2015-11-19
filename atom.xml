@@ -4,7 +4,7 @@
   <subtitle><![CDATA[strucoder's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://strucoder.com/"/>
-  <updated>2015-11-17T02:23:21.000Z</updated>
+  <updated>2015-11-19T09:26:34.000Z</updated>
   <id>http://strucoder.com/</id>
   
   <author>
@@ -13,6 +13,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[wkhtmltopdf在ubuntu中中文设置]]></title>
+    <link href="http://strucoder.com/2015/11/19/wkhtmltopdf%E5%9C%A8ubuntu%E4%B8%AD%E4%B8%AD%E6%96%87%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://strucoder.com/2015/11/19/wkhtmltopdf在ubuntu中中文设置/</id>
+    <published>2015-11-19T09:07:26.000Z</published>
+    <updated>2015-11-19T09:26:34.000Z</updated>
+    <content type="html"><![CDATA[<p>前两天利用闲暇时间折腾出了一个可以将文档转换成PDF或者PNG的web工具，用的第三方工具就是<code>tower</code>开源的<a href="https://github.com/mycolorway/simditor" target="_blank" rel="external">编辑器</a>, 以及<br><a href="http://wkhtmltopdf.org" target="_blank" rel="external">wkhtmltopdf</a>. 加上我自己对编辑器的扩展功能以及修正了在Ubuntu上中文文字显示问题。<br><a id="more"></a></p>
+<h2 id="安装相关的工具">安装相关的工具</h2><p>安装编辑器很简单，就是去<a href="https://github.com/mycolorway/simditor/releases" target="_blank" rel="external">Github</a>下载相关的代码之后按照，其说明文档操作，这里不再叙述。<br>安装<a href="http://wkhtmltopdf.org/downloads.html" target="_blank" rel="external">wkhtmltopdf</a>之后选着相关的平台。</p>
+<h2 id="使用过程遇到的问题">使用过程遇到的问题</h2><p>在我使用的使用，因为自己开发的时候用的是<code>Mac</code> 所以英文和中文都可以正常显示，但是当我部署到我的<code>vps</code>上的时候我发现，一开始我的中文出现了乱码。修复一下后<br>出现没有显示中文。这个两个问题.</p>
+<h2 id="解决办法">解决办法</h2><h3 id="解决中文乱码的问题">解决中文乱码的问题</h3><p>这个很好解决, 就是在你的生成模板中添加<code>meta</code>标签:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"content-type"</span> <span class="attribute">content</span>=<span class="value">"text/html;charset=utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="解决不显示中文">解决不显示中文</h3><p>解决这个问题我花了半个小时，确实让我折腾了一下。<br>具体的办法以及步骤</p>
+<ol>
+<li>在命令控制台运行<code>locale-gen zh_CN.UTF-8</code></li>
+<li>之后将zh_CN:zh 追加到 /etc/default/locale 中得LANGUAGE上<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/xs0LIMp3ah8IzkNC" alt="locale"></li>
+<li>之后去<a href="https://help.ubuntu.com/community/Fonts#Chinese.2C_Japanese.2C_and_Korean_Fonts" target="_blank" rel="external">这个网站</a>下载相应的字体</li>
+<li>我下载的是<a href="https://launchpad.net/ubuntu/+source/ttf-wqy-microhei/0.2.0-beta-1ubuntu1" target="_blank" rel="external">这个字体</a></li>
+<li>解压，将*.ttf文件拷贝到自己的<code>home</code>目录下得<code>.fonts</code>下，如果没有就创建</li>
+<li>刷新字体缓存: <code>sudo fc-cache -f -v</code></li>
+</ol>
+<h3 id="最后">最后</h3><p>我的项目开源了，在<a href="https://github.com/struCoder/pngOrPdfHtml" target="_blank" rel="external">这里</a>.<br>具体的访问地址: <a href="http://doc.strucoder.com" target="_blank" rel="external">http://doc.strucoder.com</a><br>由于服务器在国外有些时候网络有些卡。</p>
+<p>完.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>前两天利用闲暇时间折腾出了一个可以将文档转换成PDF或者PNG的web工具，用的第三方工具就是<code>tower</code>开源的<a href="https://github.com/mycolorway/simditor">编辑器</a>, 以及<br><a href="http://wkhtmltopdf.org">wkhtmltopdf</a>. 加上我自己对编辑器的扩展功能以及修正了在Ubuntu上中文文字显示问题。<br>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://strucoder.com/tags/javascript/"/>
+    
+      <category term="ubuntu" scheme="http://strucoder.com/tags/ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[我眼中的互联网圈]]></title>

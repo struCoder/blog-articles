@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | 张大伟的个人博客</title>
+  <title>wkhtmltopdf在ubuntu中中文设置 | 张大伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="http://7xjbiz.com1.z0.glb.clouddn.com/strucoder?imageView2/0/w/60">
-  <meta name="description" content="personal blog strucoder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张大伟的个人博客">
-<meta property="og:url" content="http://strucoder.com/archives/2015/page/2/index.html">
+  <meta name="description" content="前两天利用闲暇时间折腾出了一个可以将文档转换成PDF或者PNG的web工具，用的第三方工具就是tower开源的编辑器, 以及wkhtmltopdf. 加上我自己对编辑器的扩展功能以及修正了在Ubuntu上中文文字显示问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wkhtmltopdf在ubuntu中中文设置">
+<meta property="og:url" content="http://strucoder.com/2015/11/19/wkhtmltopdf在ubuntu中中文设置/index.html">
 <meta property="og:site_name" content="张大伟的个人博客">
-<meta property="og:description" content="personal blog strucoder">
+<meta property="og:description" content="前两天利用闲暇时间折腾出了一个可以将文档转换成PDF或者PNG的web工具，用的第三方工具就是tower开源的编辑器, 以及wkhtmltopdf. 加上我自己对编辑器的扩展功能以及修正了在Ubuntu上中文文字显示问题。">
+<meta property="og:image" content="http://7xjbiz.com1.z0.glb.clouddn.com/blog/xs0LIMp3ah8IzkNC">
+<meta property="og:updated_time" content="2015-11-19T09:26:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张大伟的个人博客">
-<meta name="twitter:description" content="personal blog strucoder">
+<meta name="twitter:title" content="wkhtmltopdf在ubuntu中中文设置">
+<meta name="twitter:description" content="前两天利用闲暇时间折腾出了一个可以将文档转换成PDF或者PNG的web工具，用的第三方工具就是tower开源的编辑器, 以及wkhtmltopdf. 加上我自己对编辑器的扩展功能以及修正了在Ubuntu上中文文字显示问题。">
   
     <link rel="alternative" href="/atom.xml" title="张大伟的个人博客" type="application/atom+xml">
   
@@ -179,150 +181,117 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-wkhtmltopdf在ubuntu中中文设置" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/11/19/wkhtmltopdf在ubuntu中中文设置/" class="article-date">
+  	<time datetime="2015-11-19T09:07:26.000Z" itemprop="datePublished">2015-11-19</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      wkhtmltopdf在ubuntu中中文设置
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/17/中国是不是二战的主战场-1/" class="archive-article-date">
-  	<time datetime="2015-10-17T05:18:19.000Z" itemprop="datePublished">Oct 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/17/中国是不是二战的主战场-1/">中国是不是二战的主战场-1</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前两天利用闲暇时间折腾出了一个可以将文档转换成PDF或者PNG的web工具，用的第三方工具就是<code>tower</code>开源的<a href="https://github.com/mycolorway/simditor" target="_blank" rel="external">编辑器</a>, 以及<br><a href="http://wkhtmltopdf.org" target="_blank" rel="external">wkhtmltopdf</a>. 加上我自己对编辑器的扩展功能以及修正了在Ubuntu上中文文字显示问题。<br><a id="more"></a></p>
+<h2 id="安装相关的工具">安装相关的工具</h2><p>安装编辑器很简单，就是去<a href="https://github.com/mycolorway/simditor/releases" target="_blank" rel="external">Github</a>下载相关的代码之后按照，其说明文档操作，这里不再叙述。<br>安装<a href="http://wkhtmltopdf.org/downloads.html" target="_blank" rel="external">wkhtmltopdf</a>之后选着相关的平台。</p>
+<h2 id="使用过程遇到的问题">使用过程遇到的问题</h2><p>在我使用的使用，因为自己开发的时候用的是<code>Mac</code> 所以英文和中文都可以正常显示，但是当我部署到我的<code>vps</code>上的时候我发现，一开始我的中文出现了乱码。修复一下后<br>出现没有显示中文。这个两个问题.</p>
+<h2 id="解决办法">解决办法</h2><h3 id="解决中文乱码的问题">解决中文乱码的问题</h3><p>这个很好解决, 就是在你的生成模板中添加<code>meta</code>标签:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"content-type"</span> <span class="attribute">content</span>=<span class="value">"text/html;charset=utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="解决不显示中文">解决不显示中文</h3><p>解决这个问题我花了半个小时，确实让我折腾了一下。<br>具体的办法以及步骤</p>
+<ol>
+<li>在命令控制台运行<code>locale-gen zh_CN.UTF-8</code></li>
+<li>之后将zh_CN:zh 追加到 /etc/default/locale 中得LANGUAGE上<br><img src="http://7xjbiz.com1.z0.glb.clouddn.com/blog/xs0LIMp3ah8IzkNC" alt="locale"></li>
+<li>之后去<a href="https://help.ubuntu.com/community/Fonts#Chinese.2C_Japanese.2C_and_Korean_Fonts" target="_blank" rel="external">这个网站</a>下载相应的字体</li>
+<li>我下载的是<a href="https://launchpad.net/ubuntu/+source/ttf-wqy-microhei/0.2.0-beta-1ubuntu1" target="_blank" rel="external">这个字体</a></li>
+<li>解压，将*.ttf文件拷贝到自己的<code>home</code>目录下得<code>.fonts</code>下，如果没有就创建</li>
+<li>刷新字体缓存: <code>sudo fc-cache -f -v</code></li>
+</ol>
+<h3 id="最后">最后</h3><p>我的项目开源了，在<a href="https://github.com/struCoder/pngOrPdfHtml" target="_blank" rel="external">这里</a>.<br>具体的访问地址: <a href="http://doc.strucoder.com" target="_blank" rel="external">http://doc.strucoder.com</a><br>由于服务器在国外有些时候网络有些卡。</p>
+<p>完.</p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/历史/">历史</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/战争/">战争</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/18/javascript实现编辑距离/" class="archive-article-date">
-  	<time datetime="2015-07-18T03:09:00.000Z" itemprop="datePublished">Jul 18</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/18/javascript实现编辑距离/">javascript实现编辑距离</a>
-    </h1>
   
+    <a href="/2015/11/17/我眼中的互联网圈/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我眼中的互联网圈</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/05/18/通过声音破解案按键数字/" class="archive-article-date">
-  	<time datetime="2015-05-18T03:32:23.000Z" itemprop="datePublished">May 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/18/通过声音破解案按键数字/">通过声音破解案按键数字</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/折腾/">折腾</a></li></ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="wkhtmltopdf在ubuntu中中文设置" data-title="wkhtmltopdf在ubuntu中中文设置" data-url="http://strucoder.com/2015/11/19/wkhtmltopdf在ubuntu中中文设置/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"strucoder"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/05/18/meteor-SEO经验-分享/" class="archive-article-date">
-  	<time datetime="2015-05-17T19:21:37.000Z" itemprop="datePublished">May 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/18/meteor-SEO经验-分享/">meteor-SEO经验-分享</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Meteor-js/">Meteor.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2015/">&laquo; Prev</a><a class="page-number" href="/archives/2015/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -349,8 +318,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true
